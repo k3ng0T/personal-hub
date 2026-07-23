@@ -238,7 +238,7 @@ header.scrolled {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 60px;
+    padding: 0 60px 100px;
     z-index: 2;
 }
 
@@ -263,10 +263,28 @@ header.scrolled {
     text-shadow: var(--glow-primary);
     animation: titleFloat 6s ease-in-out infinite;
 }
+.hero-sectitle {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(1rem, 3vw, 3rem);
+    font-weight: 900;
+    letter-spacing: 15px;
+    color: var(--text);
+    position: relative;
+    text-shadow: var(--glow-primary);
+    animation: titleFloat 6s ease-in-out infinite;
+}
 
 @keyframes titleFloat {
     0%, 100% { transform: translateY(0px); }
     50% { transform: translateY(-10px); }
+}
+
+.title-glitch{
+    font-size: clamp(3rem, 10vw, 8rem);
+}
+
+.subtitle-glitch{
+    font-size: clamp(1rem, 3vw, 3rem);
 }
 
 .glitch {
@@ -282,9 +300,13 @@ header.scrolled {
     width: 100%;
     height: 100%;
     font-family: 'Orbitron', sans-serif;
-    font-size: clamp(3rem, 10vw, 8rem);
     font-weight: 900;
     letter-spacing: 15px;
+}
+
+.subtitle-glitch::before,
+.subtitle-glitch::after {
+    font-size: clamp(1rem, 3vw, 3rem);
 }
 
 .glitch::before {
@@ -302,6 +324,7 @@ header.scrolled {
     transform: translate(2px, 2px);
     opacity: 0.8;
 }
+
 
 @keyframes glitchBefore {
     0%, 100% { transform: translate(0); }
@@ -605,15 +628,15 @@ section {
     animation: itemFloat 6s ease-in-out infinite;
 }
 
-.item-1 { animation-delay: 0s; transform: translate(120px, -30px); }
-.item-2 { animation-delay: 1s; transform: translate(-110px, 50px); }
-.item-3 { animation-delay: 2s; transform: translate(50px, 100px); }
-.item-4 { animation-delay: 3s; transform: translate(-80px, -90px); }
-.item-5 { animation-delay: 4s; transform: translate(100px, 70px); }
+.item-1 { animation-delay: 0s; --ox: 120px; --oy: -30px; }
+.item-2 { animation-delay: 1s; --ox: -110px; --oy: 50px; }
+.item-3 { animation-delay: 2s; --ox: 50px; --oy: 100px; }
+.item-4 { animation-delay: 3s; --ox: -80px; --oy: -90px; }
+.item-5 { animation-delay: 4s; --ox: 100px; --oy: 70px; }
 
 @keyframes itemFloat {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
+    0%, 100% { transform: translate(var(--ox), var(--oy)); }
+    50% { transform: translate(var(--ox), calc(var(--oy) - 10px)); }
 }
 
 /* PROJECTS */
@@ -797,7 +820,7 @@ section {
     z-index: 1;
 }
 
-.link-icon {
+.link-icon img {
     width: 40px;
     height: 40px;
     margin: 0 auto 15px;
