@@ -173,7 +173,7 @@
     const typedText = document.querySelector('.typed-text');
     if (!typedText) return;
 
-    const texts = ['DEVELOPER', 'CREATOR', 'EXPLORER', 'DESIGNER'];
+    const texts = ['DEVELOPER', 'CREATOR', 'EXPLORER', 'DESIGNER', 'TINKERER', 'SELF-TAUGHT'];
     let textIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
@@ -263,7 +263,7 @@
                     const numEl = el.querySelector('.stat-number');
                     if (numEl && numEl.dataset.target) {
                         const target = parseInt(numEl.dataset.target);
-                        const duration = 2000;
+                        const duration = 600;
                         const start = performance.now();
                         function updateNum(now) {
                             const progress = Math.min((now - start) / duration, 1);
