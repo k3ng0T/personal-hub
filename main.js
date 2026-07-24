@@ -168,50 +168,7 @@
     });
 })();
 
-// ===== TYPEWRITER EFFECT =====
-(function initTypewriter() {
-    const typedText = document.querySelector('.typed-text');
-    if (!typedText) return;
-
-    const texts = ['DEVELOPER', 'CREATOR', 'EXPLORER', 'DESIGNER', 'TINKERER', 'SELF-TAUGHT'];
-    let textIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    let isPaused = false;
-
-    function type() {
-        const currentText = texts[textIndex];
-
-        if (isPaused) {
-            setTimeout(type, 1500);
-            isPaused = false;
-            isDeleting = true;
-            return;
-        }
-
-        if (isDeleting) {
-            typedText.textContent = currentText.substring(0, charIndex - 1);
-            charIndex--;
-            if (charIndex === 0) {
-                isDeleting = false;
-                textIndex = (textIndex + 1) % texts.length;
-                setTimeout(type, 500);
-                return;
-            }
-            setTimeout(type, 50);
-        } else {
-            typedText.textContent = currentText.substring(0, charIndex + 1);
-            charIndex++;
-            if (charIndex === currentText.length) {
-                isPaused = true;
-                setTimeout(type, 0);
-                return;
-            }
-            setTimeout(type, 100);
-        }
-    }
-    setTimeout(type, 1000);
-})();
+// ===== TYPEWRITER + LANG =====
 
 // ===== GSAP SCROLL ANIMATIONS =====
 (function initScrollAnimations() {
@@ -415,11 +372,101 @@ document.querySelectorAll('.nav-links a, .link-card').forEach((el) => {
 })();
 
 // ===== LANG BUTTONS =====
-document.getElementById('lang1')?.addEventListener('click', function() {
-    this.classList.add('active');
-    document.getElementById('lang2')?.classList.remove('active');
-});
-document.getElementById('lang2')?.addEventListener('click', function() {
-    this.classList.add('active');
-    document.getElementById('lang1')?.classList.remove('active');
-});
+(function initLang() {
+    const lang1 = document.getElementById('lang1');
+    const lang2 = document.getElementById('lang2');
+    if (!lang1 || !lang2) return;
+
+    let currentLang = localStorage.getItem('lang') || 'en';
+
+    const typewriterWords = {
+        en: ['DEVELOPER', 'CREATOR', 'EXPLORER', 'DESIGNER', 'TINKERER', 'SELF-TAUGHT'],
+        ru: ['РАЗРАБОТЧИК', 'СОЗДАТЕЛЬ', 'ИССЛЕДОВАТЕЛЬ', 'ДИЗАЙНЕР', 'МАСТЕР', 'САМОУЧКА'],
+    };
+
+    let textIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let isPaused = false;
+    let typeTimeout = null;
+
+    function type() {
+        const typedText = document.querySelector('.typed-text');
+        if (!typedText) return;
+        const words = typewriterWords[currentLang];
+        const currentText = words[textIndex];
+
+        if (isPaused) {
+            typeTimeout = setTimeout(type, 1500);
+            isPaused = false;
+            isDeleting = true;
+            return;
+        }
+
+        if (isDeleting) {
+            typedText.textContent = currentText.substring(0, charIndex - 1);
+            charIndex--;
+            if (charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % words.length;
+                typeTimeout = setTimeout(type, 500);
+                return;
+            }
+            typeTimeout = setTimeout(type, 50);
+        } else {
+            typedText.textContent = currentText.substring(0, charIndex + 1);
+            charIndex++;
+            if (charIndex === currentText.length) {
+                isPaused = true;
+                typeTimeout = setTimeout(type, 0);
+                return;
+            }
+            typeTimeout = setTimeout(type, 100);
+        }
+    }
+
+    function resetTypewriter() {
+        clearTimeout(typeTimeout);
+        textIndex = 0;
+        charIndex = 0;
+        isDeleting = false;
+        isPaused = false;
+        const typedText = document.querySelector('.typed-text');
+        if (typedText) typedText.textContent = '';
+        setTimeout(type, 400);
+    }
+
+    function applyLang(lang) {
+        currentLang = lang;
+        localStorage.setItem('lang', lang);
+
+        document.querySelectorAll('[data-en]').forEach((el) => {
+            const text = el.getAttribute('data-' + lang);
+            if (text) {
+                if (el.tagName === 'A') {
+                    const arrow = el.innerHTML.includes('&rarr;') ? ' &rarr;' : '';
+                    el.textContent = text + arrow;
+                } else {
+                    el.textContent = text;
+                }
+            }
+        });
+
+        document.querySelectorAll('.section-title[data-text]').forEach((el) => {
+            const text = el.getAttribute('data-' + lang);
+            if (text) el.setAttribute('data-text', text);
+        });
+
+        document.documentElement.lang = lang;
+
+        lang1.classList.toggle('active', lang === 'en');
+        lang2.classList.toggle('active', lang === 'ru');
+
+        resetTypewriter();
+    }
+
+    lang1.addEventListener('click', () => applyLang('en'));
+    lang2.addEventListener('click', () => applyLang('ru'));
+
+    applyLang(currentLang);
+})();
