@@ -1,250 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Gotanda/k3ng0T</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Exo+2:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#151515">
+  <meta name="description" content="Gotanda / k3ng0T — developer, maker, and curious mind.">
+  <title>Gotanda / k3ng0T</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="main.js" defer></script>
 </head>
 <body>
-    <canvas id="space-bg"></canvas>
+  <a class="skip-link" href="#about">Skip to content</a>
+  <header class="header shell">
+    <a class="brand" href="#top" aria-label="Gotanda, home">g<span>.</span></a>
+    <div class="header-note">PERSONAL SPACE ON THE INTERNET</div>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-    <div class="scanlines"></div>
-    <div class="vignette"></div>
+  <main id="top">
+    <section class="hero shell" aria-labelledby="hero-title">
+      <div class="hero-top"><span>DEVELOPER / MAKER</span><span>AVAILABLE FOR CURIOSITY</span></div>
+      <div class="hero-main">
+        <div class="hero-title-wrap"><p class="hero-intro">Hey, I'm</p><h1 id="hero-title">GOTANDA<span class="title-period">.</span></h1><div class="hero-alias"><span>ALSO KNOWN AS</span><strong>k3ng0T</strong></div></div>
+        <div class="hero-object" aria-hidden="true"><div class="object-outer"><div class="object-inner"><span>g<span>.</span></span></div></div><span class="object-label object-label-top">G / K</span><span class="object-label object-label-bottom">EST. BY CURIOSITY</span></div>
+      </div>
+      <div class="hero-bottom"><p>I make things for the web, explore new technologies, and enjoy figuring out how things work.</p><a href="#about" class="scroll-link"><span class="scroll-icon" aria-hidden="true">↓</span><span>A LITTLE MORE ABOUT ME</span></a></div>
+    </section>
 
-    <div class="lang-change">
-        <button id="lang1" class="active">EN</button>
-        <button id="lang2">RU</button>
-    </div>
+    <div class="ticker" aria-hidden="true"><div class="ticker-track"><span>CODE <i>✳</i> CURIOSITY <i>✳</i> IDEAS <i>✳</i> BUILD <i>✳</i> CODE <i>✳</i> CURIOSITY <i>✳</i> IDEAS <i>✳</i> BUILD <i>✳</i>&nbsp;</span><span>CODE <i>✳</i> CURIOSITY <i>✳</i> IDEAS <i>✳</i> BUILD <i>✳</i> CODE <i>✳</i> CURIOSITY <i>✳</i> IDEAS <i>✳</i> BUILD <i>✳</i>&nbsp;</span></div></div>
 
-    <header id="header">
-        <div class="nav">
-            <div class="logo">
-                <img src="img/Logo.png" alt="Logo">
-            </div>
-            <div class="nav-links">
-                <ul>
-                    <li><a href="#about" data-text="ABOUT" data-en="ABOUT" data-ru="ОБО МНЕ">ABOUT</a></li>
-                    <li><a href="#projects" data-text="PROJECTS" data-en="PROJECTS" data-ru="ПРОЕКТЫ">PROJECTS</a></li>
-                    <li><a href="#links" data-text="CONTACT" data-en="CONTACT" data-ru="КОНТАКТ">CONTACT</a></li>
-                </ul>
-            </div>
-            <div class="hamburger" id="hamburger">
-                <span></span><span></span><span></span>
-            </div>
+    <section class="about section shell" id="about">
+      <div class="section-top"><span class="section-kicker">A LITTLE CONTEXT</span><span class="section-mark" aria-hidden="true">✳</span></div>
+      <div class="about-grid"><h2>A person behind the pixels.</h2><div class="about-copy"><p>I'm Gotanda, a 17-year-old developer currently working at the startup NEW LEGENDA. I build digital products and explore web, desktop, and mobile development.</p><a class="underlined" href="https://newlegenda.art" target="_blank" rel="noopener noreferrer"><span>More about NEW LEGENDA</span> <span aria-hidden="true">↗</span></a></div></div>
+    </section>
+
+    <section class="toolkit section shell" id="toolkit" aria-labelledby="toolkit-heading">
+      <div class="section-top"><span class="section-kicker">THE TOOLKIT</span><span class="section-mark" aria-hidden="true">✳</span></div>
+      <div class="toolkit-intro"><h2 id="toolkit-heading">Things in my orbit<span>.</span></h2><p>A small system of languages and technologies I work with. Pick a planet to explore.</p></div>
+      <div class="toolkit-layout">
+        <div class="skill-system" aria-label="Interactive technology system">
+          <div class="skill-orbit skill-orbit-outer" aria-hidden="true"></div><div class="skill-orbit skill-orbit-inner" aria-hidden="true"></div>
+          <div class="skill-sun" aria-hidden="true"><span>g<span>.</span></span></div>
+          <button class="planet" style="--x:50%;--y:11%" type="button" data-skill="TypeScript" aria-label="TypeScript" aria-pressed="false">TS</button>
+          <button class="planet" style="--x:78%;--y:22%" type="button" data-skill="Python" aria-label="Python" aria-pressed="false">Py</button>
+          <button class="planet" style="--x:89%;--y:50%" type="button" data-skill="PHP" aria-label="PHP" aria-pressed="false">PHP</button>
+          <button class="planet" style="--x:78%;--y:78%" type="button" data-skill="C++" aria-label="C++" aria-pressed="false">C++</button>
+          <button class="planet" style="--x:50%;--y:89%" type="button" data-skill="Rust" aria-label="Rust" aria-pressed="false">Rs</button>
+          <button class="planet" style="--x:22%;--y:78%" type="button" data-skill="Kotlin" aria-label="Kotlin" aria-pressed="false">Kt</button>
+          <button class="planet" style="--x:11%;--y:50%" type="button" data-skill="AutoHotkey" aria-label="AutoHotkey" aria-pressed="false">AHK</button>
+          <button class="planet" style="--x:22%;--y:22%" type="button" data-skill="Node.js" aria-label="Node.js" aria-pressed="false">Node</button>
+          <button class="planet" style="--x:50%;--y:30%" type="button" data-skill="JavaScript" aria-label="JavaScript" aria-pressed="false">JS</button>
+          <button class="planet" style="--x:68%;--y:60%" type="button" data-skill="React" aria-label="React" aria-pressed="false">Re</button>
+          <button class="planet planet-learning" style="--x:32%;--y:60%" type="button" data-skill="Swift" aria-label="Swift, currently learning" aria-pressed="false">Sw</button>
         </div>
-    </header>
+        <div class="skill-info"><p class="skill-label">SELECT A PLANET</p><div class="skill-selection" aria-live="polite" aria-atomic="true"><h3 id="skill-name">My toolkit<span>.</span></h3><p id="skill-status">Explore the technologies in my orbit.</p></div><div class="skill-index" aria-label="Technology names"><span><b>JS</b> JavaScript</span><span><b>TS</b> TypeScript</span><span><b>Node</b> Node.js</span><span><b>Re</b> React</span><span><b>PHP</b> PHP</span><span><b>Py</b> Python</span><span><b>C++</b> C++</span><span><b>AHK</b> AutoHotkey</span><span><b>Rs</b> Rust</span><span><b>Kt</b> Kotlin</span><span><b>Sw</b> Swift <small>LEARNING</small></span></div></div>
+      </div>
+    </section>
 
+    <section class="beyond section shell" id="beyond" aria-labelledby="beyond-heading">
+      <div class="section-top"><span class="section-kicker">BEYOND THE CODE</span><span class="section-mark" aria-hidden="true">✳</span></div>
+      <div class="beyond-intro"><h2 id="beyond-heading">More than a developer<span>.</span></h2><p>A little more about the person behind the screen.</p></div>
+      <div class="beyond-grid">
+        <div class="beyond-languages"><p class="beyond-label">SPOKEN LANGUAGES / 05</p><h3>Five languages<span>.</span></h3><p>English, Russian, Chinese, Kazakh and Turkish.</p></div>
+        <div class="beyond-interests"><p class="beyond-label">OFF THE CLOCK</p><h3>Play, practice, repeat<span>.</span></h3><p>I'm into card tricks and chess. When it's time to play, I've spent plenty of time in these two worlds:</p><div class="game-stats"><div><strong>1,800<span>+</span></strong><span>HOURS / VALORANT</span></div><div><strong>1,000<span>+</span></strong><span>HOURS / COUNTER-STRIKE</span></div></div></div>
+      </div>
+    </section>
 
-    <main>
-        <section class="hero" id="hero">
-            <div class="hero-content">
-                <div class="glitch-wrapper">
-                    <h1 class="hero-title glitch title-glitch" data-text="GOTANDA">GOTANDA</h1>
-                    <h3 class="hero-sectitle glitch subtitle-glitch" data-text="aka k3ng0T">aka k3ng0T</h3>
-                </div>
-                <div class="hero-subtitle-wrapper">
-                    <p class="hero-subtitle typewriter">
-                        <span class="typed-text"></span><span class="cursor">_</span>
-                    </p>
-                </div>
-                <div class="hero-line"></div>
-                <p class="hero-desc" data-en="just smone who's learnin how to code. no motivation, discipline only." data-ru="просто кто учит кодить. без мотивации, только дисциплина.">just smone who's learnin how to code. no motivation, discipline only.</p>
-            </div>
-            <div class="scroll-indicator">
-                <div class="mouse">
-                    <div class="wheel"></div>
-                </div>
-                <span data-en="SCROLL DOWN" data-ru="ЛИСТАЙ ВНИЗ">SCROLL DOWN</span>
-            </div>
-            <div class="hero-particles" id="hero-particles"></div>
-        </section>
+    <section class="projects section shell" id="projects">
+      <div class="section-top"><span class="section-kicker">A SELECTION OF MY WORK</span><span class="section-mark" aria-hidden="true">✳</span></div>
+      <div class="projects-intro"><h2>Made by me<span>.</span></h2><p>Different ideas, one thing in common: I wanted to bring them to life.</p></div>
+      <div class="project-list">
+        <article class="project"><div class="project-name"><h3><a href="https://k3ng0t.github.io/Univigate/" target="_blank" rel="noopener noreferrer">Univigate <span aria-hidden="true">↗</span></a></h3><div class="project-tech">React / Node.js / JSON as DB</div></div><p>A web application for exploring universities in Kazakhstan. Includes an admission calculator, an interactive map, university rankings, detailed descriptions of each university, and the latest news related to admissions and student life.</p></article>
+        <article class="project"><div class="project-name"><h3><a href="https://github.com/k3ng0T/messenger.app" target="_blank" rel="noopener noreferrer">Messenger-app <span aria-hidden="true">↗</span></a></h3><div class="project-tech">Python / PySide6 / SQL</div></div><p>A local network messenger with a clean, modern UI. Users can join the same localhost/LAN network, send messages in real time, and chat with a polished, responsive interface.</p></article>
+        <article class="project"><div class="project-name"><h3><a href="https://github.com/k3ng0T/SendFlow" target="_blank" rel="noopener noreferrer">SendFlow <span aria-hidden="true">↗</span></a></h3><div class="project-tech">Python / Flask / PyWhatkit</div></div><p>A web application for automating WhatsApp messages. Users can schedule a message to a specific number at a chosen time, set the number of messages to send, and control the delay (cooldown) between each one.</p></article>
+        <article class="project"><div class="project-name"><h3><a href="https://github.com/k3ng0T/Zero-Model" target="_blank" rel="noopener noreferrer">ZERO Model <span aria-hidden="true">↗</span></a></h3><div class="project-tech">Rust / Python / Web</div></div><p>A voice-controlled AI agent that can operate your computer through natural speech commands. Features a fast, lightweight overlay built in Rust for optimal performance.</p></article>
+      </div>
+    </section>
 
-        <section class="about" id="about">
-            <div class="section-header">
-                <span class="section-number">01</span>
-                <h2 class="section-title" data-text="ABOUT ME" data-en="ABOUT ME" data-ru="ОБО МНЕ">ABOUT ME</h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="about-grid">
-                <div class="about-text">
-                    <p class="about-paragraph reveal-text" data-en="I'm 16 years old, born in China to a Kazakh family, and now living in Kazakhstan. I recently finished school and this year started university. My interest in programming began around the age of 10 with C#, though it wasn't until I turned 12 that I got seriously into web development — learning HTML, CSS, JS, and PHP on my own. By 14, I had picked up Python and SQL as well." data-ru="Мне 16 лет, родился в Китае в казахской семье, сейчас живу в Казахстане. Недавно закончил школу и в этом году поступил в университет. Интерес к программированию появился примерно в 10 лет на C#, но серьёзно в веб-разработку я вовался в 12 — самостоятельно изучил HTML, CSS, JS и PHP. К 14 годам освоил Python и SQL.">I'm 16 years old, born in China to a Kazakh family, and now living in Kazakhstan. I recently finished school and this year started university. My interest in programming began around the age of 10 with C#, though it wasn't until I turned 12 that I got seriously into web development — learning HTML, CSS, JS, and PHP on my own. By 14, I had picked up Python and SQL as well.</p>
-                    <p class="about-paragraph reveal-text" data-en="These days, I focus on building tools for myself — task managers, AI assistants, and small utilities that solve problems I run into daily. I've also gotten into AI-assisted development, using it less to write code I don't understand and more to speed up implementing ideas I already know how to build. Outside of programming, I enjoy creating Minecraft datapacks and experimenting with AI prompting." data-ru="Сейчас я фокусируюсь на создании инструментов для себя — менеджеров задач, ИИ-ассистентов и небольших утилит, которые решают мои повседневные задачи. Также увлёкся ИИ-ассистированным разработком — использую его не чтобы писать код, который не понимаю, а чтобы ускорять реализацию идей, которые уже умею делать. Вне программируния люблю создавать Minecraft datapacks и экспериментировать с ИИ-промптингом.">These days, I focus on building tools for myself — task managers, AI assistants, and small utilities that solve problems I run into daily. I've also gotten into AI-assisted development, using it less to write code I don't understand and more to speed up implementing ideas I already know how to build. Outside of programming, I enjoy creating Minecraft datapacks and experimenting with AI prompting.</p>
-                    <div class="about-stats">
-                        <div class="stat reveal-item">
-                            <span class="stat-number" data-target="6">0</span>
-                            <span class="stat-label" data-en="PROJECTS" data-ru="ПРОЕКТЫ">PROJECTS</span>
-                        </div>
-                        <div class="stat reveal-item">
-                            <span class="stat-number" data-target="2">0</span>
-                            <span class="stat-label" data-en="YEARS EXP" data-ru="ГОДЫ ОПЫТА">YEARS EXP</span>
-                        </div>
-                        <div class="stat reveal-item">
-                            <span class="stat-number" data-target="2">0</span>
-                            <span class="stat-label" data-en="CLIENTS" data-ru="КЛИЕНТЫ">CLIENTS</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-visual">
-                    <div class="tech-orbit">
-                        <div class="orbit-ring ring-1"></div>
-                        <div class="orbit-ring ring-2"></div>
-                        <div class="orbit-ring ring-3"></div>
-                        <div class="orbit-center">
-                            <span>DEV</span>
-                        </div>
-                        <div class="orbit-item item-1">JS</div>
-                        <div class="orbit-item item-2">PY</div>
-                        <div class="orbit-item item-3">AHK</div>
-                        <div class="orbit-item item-4">Rust</div>
-                        <div class="orbit-item item-5">PHP</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="projects" id="projects">
-            <div class="section-header">
-                <span class="section-number">02</span>
-                <h2 class="section-title" data-text="PROJECTS" data-en="PROJECTS" data-ru="ПРОЕКТЫ">PROJECTS</h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="projects-grid">
-                <div class="project-card reveal-card">
-                    <div class="card-glow"></div>
-                    <div class="card-border"></div>
-                    <div class="card-content">
-                        <div class="card-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                        </div>
-                        <h3 class="card-title">Univigate</h3>
-                        <p class="card-desc" data-en="A web application for exploring universities in Kazakhstan. Includes an admission calculator, an interactive map, university rankings, detailed descriptions of each university, and the latest news related to admissions and student life." data-ru="Веб-приложение для изучения университетов Казахстана. Включает калькулятор поступления, интерактивную карту, рейтинг университетов, подробные описания каждого вуза и последние новости о поступлении и студенческой жизни.">A web application for exploring universities in Kazakhstan. Includes an admission calculator, an interactive map, university rankings, detailed descriptions of each university, and the latest news related to admissions and student life.</p>
-                        <div class="card-tags">
-                            <span class="tag">React</span>
-                            <span class="tag">Node.js</span>
-                            <span class="tag">JSON as DB</span>
-                        </div>
-                        <div class="card-link">
-                            <a href="https://k3ng0t.github.io/Univigate/" data-en="VIEW PROJECT" data-ru="ПОСМОТРЕТЬ">VIEW PROJECT &rarr;</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card reveal-card">
-                    <div class="card-glow"></div>
-                    <div class="card-border"></div>
-                    <div class="card-content">
-                        <div class="card-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-                        </div>
-                        <h3 class="card-title">Messenger-app</h3>
-                        <p class="card-desc" data-en="A local network messenger with a clean, modern UI. Users can join the same localhost/LAN network, send messages in real time, and chat with a polished, responsive interface." data-ru="Мессенджер локальной сети с чистым, современным интерфейсом. Пользователи могут подключиться к одной локальной сети, отправлять сообщения в реальном времени и общаться в удобном отзывчивом интерфейсе.">A local network messenger with a clean, modern UI. Users can join the same localhost/LAN network, send messages in real time, and chat with a polished, responsive interface.</p>
-                        <div class="card-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">PySide6</span>
-                            <span class="tag">SQL</span>
-                        </div>
-                        <div class="card-link">
-                            <a href="https://github.com/k3ng0T/messenger.app" data-en="VIEW PROJECT" data-ru="ПОСМОТРЕТЬ">VIEW PROJECT &rarr;</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card reveal-card">
-                    <div class="card-glow"></div>
-                    <div class="card-border"></div>
-                    <div class="card-content">
-                        <div class="card-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                        </div>
-                        <h3 class="card-title">SendFlow</h3>
-                        <p class="card-desc" data-en="A web application for automating WhatsApp messages. Users can schedule a message to a specific number at a chosen time, set the number of messages to send, and control the delay (cooldown) between each one." data-ru="Веб-приложение для автоматизации сообщений в WhatsApp. Можно запланировать сообщение на определённый номер в выбранное время, задать количество сообщений и контроль задержки между ними.">A web application for automating WhatsApp messages. Users can schedule a message to a specific number at a chosen time, set the number of messages to send, and control the delay (cooldown) between each one.</p>
-                        <div class="card-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">Flask</span>
-                            <span class="tag">PyWhatkit</span>
-                        </div>
-                        <div class="card-link">
-                            <a href="https://github.com/k3ng0T/SendFlow" data-en="VIEW PROJECT" data-ru="ПОСМОТРЕТЬ">VIEW PROJECT &rarr;</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card reveal-card">
-                    <div class="card-glow"></div>
-                    <div class="card-border"></div>
-                    <div class="card-content">
-                        <div class="card-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <circle cx="12" cy="12" r="9"/>
-                                <path d="M9 8l4 4-4 4"/>
-                                <path d="M13 16h3"/>
-                            </svg>
-                        </div>
-                        <h3 class="card-title">ZERO Model</h3>
-                        <p class="card-desc" data-en="A voice-controlled AI agent that can operate your computer through natural speech commands. Features a fast, lightweight overlay built in Rust for optimal performance." data-ru="Голосовой ИИ-агент, который управляет компьютером через голосовые команды. Быстрый и лёгкий оверлей, написанный на Rust для оптимальной производительности.">A voice-controlled AI agent that can operate your computer through natural speech commands. Features a fast, lightweight overlay built in Rust for optimal performance.</p>
-                        <div class="card-tags">
-                            <span class="tag">Rust</span>
-                            <span class="tag">Python</span>
-                            <span class="tag">Web</span>
-                        </div>
-                        <div class="card-link">
-                            <a href="https://github.com/k3ng0T/Zero-Model" data-en="VIEW PROJECT" data-ru="ПОСМОТРЕТЬ">VIEW PROJECT &rarr;</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="links" id="links">
-            <div class="section-header">
-                <span class="section-number">03</span>
-                <h2 class="section-title" data-text="CONNECT" data-en="CONNECT" data-ru="КОНТАКТ">CONNECT</h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="links-grid">
-                <a href="https://github.com/k3ng0T" class="link-card reveal-link">
-                    <div class="link-glow"></div>
-                    <div class="link-content">
-                        <div class="link-icon"><img src="img/github.png" alt="github"></div>
-                        <span class="link-label">GitHub</span>
-                        <span class="link-url">github.com/k3ng0T</span>
-                    </div>
-                </a>
-                <a href="https://www.instagram.com/just_a_simple_vibecoder" class="link-card reveal-link">
-                    <div class="link-glow"></div>
-                    <div class="link-content">
-                        <div class="link-icon"><img src="img/instagram.png" alt="instagram"></div>
-                        <span class="link-label">Instagram</span>
-                        <span class="link-url">@just_a_simple_vibecoder</span>
-                    </div>
-                </a>
-                <a href="https://discord.com/users/ken90t" class="link-card reveal-link">
-                    <div class="link-glow"></div>
-                    <div class="link-content">
-                        <div class="link-icon"><img src="img/discord.png" alt="discord"></div>
-                        <span class="link-label">Discord</span>
-                        <span class="link-url">discord/ken90t</span>
-                    </div>
-                </a>
-                <a href="mailto:kengot034@gmail.com" class="link-card reveal-link">
-                    <div class="link-glow"></div>
-                    <div class="link-content">
-                        <div class="link-icon"><img src="img/mail.png" alt="mail"></div>
-                        <span class="link-label">Email</span>
-                        <span class="link-url">kengot034@gmail.com</span>
-                    </div>
-                </a>
-            </div>
-        </section>
-
-        <footer class="footer">
-            <div class="footer-line"></div>
-            <p>&copy; 2026 GOTANDA. All rights reserved.</p>
-        </footer>
-    </main>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="main.js"></script>
+    <section class="contact section shell" id="contact"><div class="section-top"><span class="section-kicker">SAY HELLO</span><span class="section-mark" aria-hidden="true">✳</span></div><div class="contact-main"><p>HAVE AN IDEA, A QUESTION, OR JUST WANT TO SAY HI?</p><h2>Let's talk.</h2><a class="contact-email" href="mailto:pride@gotanda.is-a.dev">pride@gotanda.is-a.dev<span aria-hidden="true">↗</span></a></div><div class="contact-bottom"><p>@just_a_simple_vibecoder</p><div class="socials"><a href="https://github.com/k3ng0T" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://www.instagram.com/just_a_simple_vibecoder" target="_blank" rel="noopener noreferrer">Instagram ↗</a></div></div></section>
+  </main>
+  <footer class="footer shell"><span>© 2026 GOTANDA / K3NG0T</span><span>MADE WITH CURIOSITY</span><a href="#top">BACK TO TOP ↑</a></footer>
 </body>
 </html>
