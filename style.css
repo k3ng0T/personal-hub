@@ -133,10 +133,6 @@ h1 { font-size: clamp(4.3rem, 10.3vw, 9.75rem); line-height: .9; letter-spacing:
 .planet-orbit-inner { animation-duration: 34s; animation-direction: reverse; }
 .planet-orbit .planet { pointer-events: auto; animation: planet-counter-orbit 52s linear infinite; }
 .planet-orbit-inner .planet { animation-duration: 34s; animation-direction: reverse; }
-.skill-system:has(.planet:focus-visible) .planet-orbit, .skill-system:has(.planet:focus-visible) .planet { animation-play-state: paused; }
-@media (hover: hover) {
-  .skill-system:has(.planet:hover) .planet-orbit, .skill-system:has(.planet:hover) .planet { animation-play-state: paused; }
-}
 .skill-sun { position: absolute; top: 50%; left: 50%; display: grid; place-items: center; width: 19%; aspect-ratio: 1; padding-right: .12em; border-radius: 50%; background: linear-gradient(135deg, #f3c1d3, #c8afe2); color: #201920; font-size: clamp(38px, 6vw, 72px); font-weight: 700; letter-spacing: -.12em; line-height: 1; transform: translate(-50%, -50%); box-shadow: 0 0 0 10px var(--panel), 0 0 55px #df9bb128; }
 .skill-sun > span { transform: translate(-5%, -9%); }
 .skill-sun > span span { color: #946886; }

@@ -15,7 +15,6 @@
   const modeButtons = object?.querySelectorAll('.object-mode');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   if (hero && object && handle && modeButtons) {
-    const storageKey = 'gotanda:hero-object-position:v1';
     let drag = null;
     let mode = 'g';
 
@@ -35,14 +34,6 @@
       place(bounds.left + window.scrollX, bounds.top + window.scrollY);
     };
 
-    const saveState = () => {
-      try {
-        localStorage.setItem(storageKey, JSON.stringify({ mode }));
-      } catch (_) {
-        // The object remains movable when browser storage is unavailable.
-      }
-    };
-
     const setMode = (nextMode) => {
       const targetMode = nextMode === 'k' ? 'k' : 'g';
       if (targetMode !== mode) {
@@ -57,18 +48,10 @@
       if (mode === 'k') object.style.translate = '';
     };
 
-    try {
-      const saved = JSON.parse(localStorage.getItem(storageKey));
-      setMode(saved?.mode);
-    } catch (_) {
-      // Ignore unavailable storage or an invalid saved position.
-    }
-
     modeButtons.forEach((button) => {
       button.addEventListener('click', () => {
         setMode(button.dataset.mode);
         button.focus({ preventScroll: true });
-        saveState();
       });
     });
 
@@ -106,7 +89,6 @@
       if (!drag || drag.pointerId !== event.pointerId) return;
       drag = null;
       object.classList.remove('is-dragging');
-      saveState();
     };
     handle.addEventListener('pointerup', finishDrag);
     handle.addEventListener('pointercancel', finishDrag);
@@ -121,13 +103,11 @@
       handle.focus({ preventScroll: true });
       const step = event.shiftKey ? 40 : 10;
       place(parseFloat(object.style.left) + direction[0] * step, parseFloat(object.style.top) + direction[1] * step);
-      saveState();
     });
 
     window.addEventListener('resize', () => {
       if (!object.classList.contains('is-placed') || drag) return;
       place(parseFloat(object.style.left), parseFloat(object.style.top));
-      saveState();
     });
   }
 })();
