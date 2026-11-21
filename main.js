@@ -21,7 +21,7 @@
 
     const place = (left, top) => {
       const maxX = Math.max(0, document.documentElement.clientWidth - object.offsetWidth);
-      const maxY = Math.max(0, document.documentElement.scrollHeight - object.offsetHeight);
+      const maxY = Math.max(0, (mode === 'k' ? window.innerHeight : document.documentElement.scrollHeight) - object.offsetHeight);
       object.style.left = `${Math.min(maxX, Math.max(0, left))}px`;
       object.style.top = `${Math.min(maxY, Math.max(0, top))}px`;
     };
@@ -41,6 +41,7 @@
         if (object.classList.contains('is-placed')) {
           state.left = parseFloat(object.style.left);
           state.top = parseFloat(object.style.top);
+          state.coordinateSpace = mode === 'k' ? 'viewport' : 'document';
         }
         localStorage.setItem(storageKey, JSON.stringify(state));
       } catch (_) {
@@ -49,13 +50,15 @@
     };
 
     const setMode = (nextMode) => {
-      if (nextMode === 'k' && mode === 'g' && object.style.translate) {
+      const targetMode = nextMode === 'k' ? 'k' : 'g';
+      if (targetMode !== mode) {
         const bounds = object.getBoundingClientRect();
         detach();
         object.style.translate = '';
-        place(bounds.left + window.scrollX, bounds.top + window.scrollY);
+        mode = targetMode;
+        object.classList.toggle('is-fixed', mode === 'k');
+        place(bounds.left + (mode === 'g' ? window.scrollX : 0), bounds.top + (mode === 'g' ? window.scrollY : 0));
       }
-      mode = nextMode === 'k' ? 'k' : 'g';
       modeButtons.forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.mode === mode)));
       if (mode === 'k') object.style.translate = '';
     };
@@ -65,7 +68,8 @@
       setMode(saved?.mode);
       if (saved && Number.isFinite(saved.left) && Number.isFinite(saved.top)) {
         detach();
-        place(saved.left, saved.top);
+        const oldDocumentPosition = mode === 'k' && saved.coordinateSpace !== 'viewport';
+        place(saved.left - (oldDocumentPosition ? window.scrollX : 0), saved.top - (oldDocumentPosition ? window.scrollY : 0));
       }
     } catch (_) {
       // Ignore unavailable storage or an invalid saved position.
@@ -106,7 +110,7 @@
 
     handle.addEventListener('pointermove', (event) => {
       if (!drag || drag.pointerId !== event.pointerId) return;
-      place(event.clientX + window.scrollX - drag.x, event.clientY + window.scrollY - drag.y);
+      place(event.clientX + (mode === 'g' ? window.scrollX : 0) - drag.x, event.clientY + (mode === 'g' ? window.scrollY : 0) - drag.y);
     });
 
     const finishDrag = (event) => {
