@@ -37,13 +37,7 @@
 
     const saveState = () => {
       try {
-        const state = { mode };
-        if (object.classList.contains('is-placed')) {
-          state.left = parseFloat(object.style.left);
-          state.top = parseFloat(object.style.top);
-          state.coordinateSpace = mode === 'k' ? 'viewport' : 'document';
-        }
-        localStorage.setItem(storageKey, JSON.stringify(state));
+        localStorage.setItem(storageKey, JSON.stringify({ mode }));
       } catch (_) {
         // The object remains movable when browser storage is unavailable.
       }
@@ -66,11 +60,6 @@
     try {
       const saved = JSON.parse(localStorage.getItem(storageKey));
       setMode(saved?.mode);
-      if (saved && Number.isFinite(saved.left) && Number.isFinite(saved.top)) {
-        detach();
-        const oldDocumentPosition = mode === 'k' && saved.coordinateSpace !== 'viewport';
-        place(saved.left - (oldDocumentPosition ? window.scrollX : 0), saved.top - (oldDocumentPosition ? window.scrollY : 0));
-      }
     } catch (_) {
       // Ignore unavailable storage or an invalid saved position.
     }
