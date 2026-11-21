@@ -83,10 +83,12 @@ h1 { font-size: clamp(4.3rem, 10.3vw, 9.75rem); line-height: .9; letter-spacing:
 .object-handle { position: absolute; inset: 0; width: 100%; height: 100%; padding: 0; border: 0; border-radius: 50%; background: none; color: inherit; cursor: grab; touch-action: none; }
 .hero-object.is-dragging .object-handle { cursor: grabbing; }
 .object-handle:focus-visible { outline-offset: 7px; }
-.object-modes { position: absolute; z-index: 2; top: 3%; right: -15px; display: flex; align-items: center; gap: 1px; padding: 3px; border: 1px solid #6d5362; border-radius: 999px; background: #242027; color: #9d8994; font-size: 12px; line-height: 1; }
-.object-mode { display: grid; place-items: center; width: 29px; height: 29px; padding: 0; border: 0; border-radius: 50%; background: transparent; color: #c6b3be; font-size: 12px; font-weight: 600; cursor: pointer; transition: color .2s, background .2s; }
+.object-modes { position: absolute; z-index: 2; top: 3%; right: -15px; display: flex; align-items: center; gap: 0; color: #8c7c87; font-size: 11px; line-height: 1; }
+.object-mode { display: grid; place-items: center; width: 30px; height: 36px; padding: 0; border: 0; background: transparent; color: #b09da9; font-size: 12px; font-weight: 500; cursor: pointer; transition: color .2s, transform .2s, text-shadow .2s; }
 .object-mode:hover { color: var(--ink); }
-.object-mode[aria-pressed='true'] { background: var(--pink); color: #21181e; }
+.object-mode[aria-pressed='true'] { font-weight: 700; transform: scale(1.22); }
+.object-mode[data-mode='g'][aria-pressed='true'] { color: var(--pink); text-shadow: 0 0 12px #efa9c280; }
+.object-mode[data-mode='k'][aria-pressed='true'] { color: var(--lilac); text-shadow: 0 0 12px #d2bde980; }
 .object-mode:focus-visible { outline-offset: 2px; }
 .object-outer { position: absolute; inset: 0; border: 1px solid #866377; border-radius: 50%; }
 .object-outer::before, .object-outer::after { content: ''; position: absolute; inset: 9%; border: 1px dashed #705265; border-radius: 50%; animation: orbit 24s linear infinite; }
